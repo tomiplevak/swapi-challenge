@@ -1,6 +1,6 @@
 import apiClient from "./axios";
 
-const getCharacters = async () => {
+export const getCharacters = async () => {
     try {
       const response = await apiClient.get("/people");
       return response.data;
@@ -9,4 +9,5 @@ const getCharacters = async () => {
     }
   };
 
-export default getCharacters;
+const CharacterService = {getCharacters}
+export default CharacterService;

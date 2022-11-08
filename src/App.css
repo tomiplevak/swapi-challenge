@@ -20,3 +20,7 @@ html{
   height: 100%;
   background-image: url('./assets/background-image.jpg');
 }
+
+body{
+  background-color: transparent;
+}
