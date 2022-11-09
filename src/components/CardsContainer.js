@@ -3,18 +3,22 @@ import { getCharacters } from "../services/characterService";
 import CharacterCard from "./CharacterCard";
 import "./CardsContainer.css";
 import { useNavigate } from "react-router";
+import SearchBox from "./SearchBox";
 
 const CardsContainer = () => {
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchedInput, setSearchedInput] = useState('');
+
   const itemsPerPage = 10;
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    getCharacters(currentPage).then((response) => {
+    getCharacters(currentPage, searchedInput).then((response) => {
       setCharacters(response);
     });
-  }, [currentPage]);
+  }, [currentPage, searchedInput]);
 
   const pageNumbers = [];
 
@@ -40,8 +44,13 @@ const CardsContainer = () => {
     navigate(`/characters/${id}`);
   };
 
+  const onSearch = (text) => {
+    setSearchedInput(text);
+  }
+
   return (
     <div className="container">
+      <SearchBox onSearch={onSearch}/>
       <div className="row">
         {characters?.results?.map((character) => (
           <CharacterCard
