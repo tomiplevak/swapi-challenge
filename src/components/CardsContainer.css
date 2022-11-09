@@ -2,3 +2,15 @@
     display: flex;
     justify-content: center;
 }
+.page-link{
+    color: #ffc107;
+}
+.page-link:hover{
+    color: black;
+}
+.page-link-logo{
+    color: black;
+}
+.page-link-logo:hover{
+    color: #ffc107;
+}

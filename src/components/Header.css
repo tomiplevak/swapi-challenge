@@ -1,3 +1,8 @@
 .header-logo{
     cursor: pointer;
 }
+ 
+.header-paragraph{
+    font-size: medium;
+    color: white;
+}

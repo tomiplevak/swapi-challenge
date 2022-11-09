@@ -44,14 +44,14 @@ const CardsContainer = () => {
     <div className="container">
       <div className="row">
         {currentCharacters?.map((character) => (
-          <CharacterCard character={character} key={character.name}/>
+          <CharacterCard character={character} key={character.name} />
         ))}
       </div>
       <nav aria-label="Page navigation example" className="pagination-navbar">
         <ul className="pagination">
           <li className="page-item" key="previouspage">
             <a
-              className="page-link"
+              className="page-link page-link-logo"
               href="#"
               aria-label="Previous"
               onClick={handdlePreviousPage}
@@ -73,7 +73,7 @@ const CardsContainer = () => {
           ))}
           <li className="page-item" key="nextpage">
             <a
-              className="page-link"
+              className="page-link page-link-logo"
               href="#"
               aria-label="Next"
               onClick={handdleNextPage}

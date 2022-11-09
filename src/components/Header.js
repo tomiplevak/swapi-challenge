@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router";
 import Logo from "../assets/header-logo.svg";
 
-import './Header.css';
+import "./Header.css";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -16,7 +16,16 @@ const Header = () => {
 
   return (
     <div className="header">
-      <img src={Logo} alt="header-logo" onClick={navigateToHome} className='header-logo'/>
+      <img
+        src={Logo}
+        alt="header-logo"
+        onClick={navigateToHome}
+        className="header-logo"
+      />
+      <p className="header-paragraph">
+        All the Star Wars data you've ever wanted: 
+        <br/>Planets, Spaceships, Vehicles, Characters, Films and Species
+      </p>
     </div>
   );
 };
