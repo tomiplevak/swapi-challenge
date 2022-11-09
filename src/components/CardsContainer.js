@@ -5,6 +5,7 @@ import "./CardsContainer.css";
 import { useNavigate } from "react-router";
 import SearchBox from "./SearchBox";
 import Spinner from './Spinner'
+import findIDFromString from "../utils/findIDFromString";
 
 const CardsContainer = () => {
   const [characters, setCharacters] = useState([]);
@@ -42,8 +43,7 @@ const CardsContainer = () => {
   };
 
   const onClickCharacter = (character) => {
-    const indexOfPeople = character?.url?.indexOf("people/");
-    const id = character?.url?.substring(indexOfPeople + "people/".length).replace('/','');
+    const id = findIDFromString(character?.url,"people/")
     navigate(`/characters/${id}`);
   };
 

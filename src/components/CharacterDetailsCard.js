@@ -7,6 +7,7 @@ import episode3Poster from "../assets/episode3.jpg";
 import episode4Poster from "../assets/episode4.jpg";
 import episode5Poster from "../assets/episode5.jpg";
 import episode6Poster from "../assets/episode6.jpg";
+import findIDFromString from "../utils/findIDFromString";
 
 const filmsPoster = new Map([
   ['1', episode1Poster],
@@ -20,12 +21,9 @@ const filmsPoster = new Map([
 const CharacterDetailsCard = (props) => {
   const characterFilms = [];
 
-  props.character?.films.forEach((element) => {
-    const indexOfFilms = element.indexOf("films/");
-    const films = element
-      .substring(indexOfFilms + "films/".length)
-      .replace("/", "");
-    characterFilms.push(films);
+  props.character?.films.forEach(film => {
+    const filmID = findIDFromString(film,"films/")
+    characterFilms.push(filmID);
   });
 
   const imgFilms = characterFilms.map((film) => filmsPoster.get(film));
