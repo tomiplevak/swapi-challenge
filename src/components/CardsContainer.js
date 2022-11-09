@@ -6,23 +6,23 @@ import "./CardsContainer.css";
 const CardsContainer = () => {
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(6);
+  const itemsPerPage = 10;
 
   useEffect(() => {
-    getCharacters().then((response) => {
+    getCharacters(currentPage).then((response) => {
       setCharacters(response);
     });
-  }, []);
+  }, [currentPage]);
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCharacters =
-    characters?.results?.slice(indexOfFirstItem, indexOfLastItem) || [];
+  //const currentCharacters =
+    //characters?.results?.slice(indexOfFirstItem, indexOfLastItem) || [];
   const pageNumbers = [];
 
   for (
     let i = 1;
-    i <= Math.ceil(characters?.results?.length / itemsPerPage);
+    i <= Math.ceil(characters?.count / itemsPerPage);
     i++
   ) {
     pageNumbers.push(i);
@@ -43,7 +43,7 @@ const CardsContainer = () => {
   return (
     <div className="container">
       <div className="row">
-        {currentCharacters?.map((character) => (
+        {characters?.results?.map((character) => (
           <CharacterCard character={character} key={character.name} />
         ))}
       </div>
@@ -62,7 +62,7 @@ const CardsContainer = () => {
           {pageNumbers.map((number) => (
             <li className="page-item" key={`li-${number}`}>
               <a
-                className="page-link"
+                className={currentPage === number ? "activePage page-link" : "page-link"}
                 href="#"
                 onClick={() => setCurrentPage(number)}
                 key={`a-${number}`}

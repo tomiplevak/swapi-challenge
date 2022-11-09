@@ -4,7 +4,7 @@ import "./CharacterCard.css";
 
 const CharacterCard = (props) => {
   return (
-    <div className="col-4">
+    <div className="col-6">
       <div className="card text-bg-warning mb-3">
         <div className="card-body">
           <h5 className="card-title">{props.character.name}</h5>

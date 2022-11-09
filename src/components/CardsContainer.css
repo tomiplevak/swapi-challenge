@@ -3,6 +3,7 @@
     justify-content: center;
 }
 .page-link{
+    cursor: pointer;
     color: #ffc107;
 }
 .page-link:hover{
@@ -13,4 +14,10 @@
 }
 .page-link-logo:hover{
     color: #ffc107;
+}
+.activePage{
+    background-color: black;
+}
+.page-link:active{
+    background-color: black;
 }
