@@ -7,9 +7,15 @@ import episode3Poster from "../assets/episode3.jpg";
 import episode4Poster from "../assets/episode4.jpg";
 import episode5Poster from "../assets/episode5.jpg";
 import episode6Poster from "../assets/episode6.jpg";
-import episode7Poster from "../assets/episode7.jpg";
-import episode8Poster from "../assets/episode8.jpg";
-import episode9Poster from "../assets/episode9.jpg";
+
+const filmsPoster = new Map([
+  ['1', episode1Poster],
+  ['2', episode2Poster],
+  ['3', episode3Poster],
+  ['4', episode4Poster],
+  ['5', episode5Poster],
+  ['6', episode6Poster]
+])
 
 const CharacterDetailsCard = (props) => {
   const characterFilms = [];
@@ -22,28 +28,7 @@ const CharacterDetailsCard = (props) => {
     characterFilms.push(films);
   });
 
-  const imgFilms = characterFilms.map((film) => {
-    if (film === "1") {
-      return episode1Poster;
-    } else if (film === "2") {
-      return episode2Poster;
-    } else if (film === "3") {
-      return episode3Poster;
-    } else if (film === "4") {
-      return episode4Poster;
-    } else if (film === "5") {
-      return episode5Poster;
-    } else if (film === "6") {
-      return episode6Poster;
-    } else if (film === "7") {
-      return episode7Poster;
-    } else if (film === "8") {
-      return episode8Poster;
-    } else if (film === "9") {
-      return episode9Poster;
-    } else {
-    }
-  });
+  const imgFilms = characterFilms.map((film) => filmsPoster.get(film));
 
   return (
     <div className="card-container">
@@ -66,7 +51,7 @@ const CharacterDetailsCard = (props) => {
           <div className="row">
             {characterFilms?.map((film) => (
               <div className="col">
-              <p className="card-text">{film}</p>
+              <p className="card-text film-episode">{film}</p>
               </div>
             ))}
           </div>

@@ -13,7 +13,18 @@
 .card-details-title{
     cursor:default;
     background-color: black;
-    border-radius: 1%;
+    border-radius: 1rem;
+    color: #ffc107;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.film-episode{
+    border-style: ridge;
+    border-radius: 10rem;
+    background-color: black;
     color: #ffc107;
 }
-
+.img-fluid{
+    padding-top: 1rem;
+}

@@ -4,11 +4,13 @@ import CharacterCard from "./CharacterCard";
 import "./CardsContainer.css";
 import { useNavigate } from "react-router";
 import SearchBox from "./SearchBox";
+import Spinner from './Spinner'
 
 const CardsContainer = () => {
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchedInput, setSearchedInput] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   const itemsPerPage = 10;
 
@@ -17,6 +19,7 @@ const CardsContainer = () => {
   useEffect(() => {
     getCharacters(currentPage, searchedInput).then((response) => {
       setCharacters(response);
+      setIsLoading(false);
     });
   }, [currentPage, searchedInput]);
 
@@ -46,13 +49,14 @@ const CardsContainer = () => {
 
   const onSearch = (text) => {
     setSearchedInput(text);
+    setIsLoading(true);
   }
 
   return (
     <div className="container">
       <SearchBox onSearch={onSearch}/>
       <div className="row">
-        {characters?.results?.map((character) => (
+        {isLoading ? <Spinner /> : characters?.results?.map((character) => (
           <CharacterCard
             character={character}
             key={character.name}
