@@ -11,7 +11,7 @@ const SearchBox = (props) => {
   };
 
   return (
-    <div className="input-group mb-3">
+    <div className="input-group mb-3 mx-auto">
       <input
         type="text"
         className="form-control"

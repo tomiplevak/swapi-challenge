@@ -1,0 +1,19 @@
+.card-details{
+    width: 50%;
+    background-color: #ffc107;
+}
+.card-container{
+    display: flex;
+    justify-content: center;
+}
+.card-text{
+    border-color: black;
+    border-style:groove
+}
+.card-details-title{
+    cursor:default;
+    background-color: black;
+    border-radius: 1%;
+    color: #ffc107;
+}
+

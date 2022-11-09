@@ -7,7 +7,7 @@ const CharacterCard = (props) => {
     <div className="col-md-6">
       <div className="card text-bg-warning mb-3">
         <div className="card-body">
-          <h5 className="card-title" onClick={()=> props.onClickCharacter(props.character)}>{props.character.name}</h5>
+          <h5 className="card-title card-character-title" onClick={()=> props.onClickCharacter(props.character)}>{props.character.name}</h5>
         </div>
         <ul className="list-group list-group-flush card-info">
           <li className="list-group-item" key={`${props.character.name}-height`}>

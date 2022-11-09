@@ -5,9 +5,12 @@
     font-size:x-large;
     cursor: pointer;
 }
-.card-title:hover{
+.card-character-title:hover{
     color: rgb(51, 48, 48);
 }
 .card-info{
     font-size: smaller;
+}
+.list-group-item{
+    background-color: rgb(213, 207, 207);
 }
