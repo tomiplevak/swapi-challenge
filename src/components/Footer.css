@@ -1,0 +1,9 @@
+.footer{
+    color: white;
+    padding-top: 1rem;
+}
+.footer-img{
+    cursor: pointer;
+    padding-bottom: 2rem;
+    width: 15%;
+}
