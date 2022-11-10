@@ -1,6 +1,8 @@
 .pagination-navbar{
     display: flex;
     justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 .page-link{
     cursor: pointer;
