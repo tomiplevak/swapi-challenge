@@ -1,10 +1,10 @@
 import apiClient from "./axios";
 
-export const getCharacters = async (pageNumber, searchedInput) => {
+export const getCharacters = async (pageNumber, textInput) => {
   try {
-    let url = `/people/?search=${searchedInput}`;
-    if (!searchedInput) {
-      url = url + `&page=${pageNumber}`
+    let url = `/people/?search=${textInput}`;
+    if (!textInput) {
+      url = url + `&page=${pageNumber}`;
     }
     const response = await apiClient.get(url);
     return response.data;

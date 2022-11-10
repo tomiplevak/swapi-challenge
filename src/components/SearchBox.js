@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { debounce } from 'lodash';
+import { debounce } from "lodash";
 
 import "./SearchBox.css";
 
@@ -23,7 +23,7 @@ const SearchBox = (props) => {
         placeholder="Search a Star Wars Character..."
         aria-label="Search a Star Wars Character..."
         aria-describedby="button-addon2"
-        onChange={(e)=>handdleChange(e.target.value)}
+        onChange={(e) => handdleChange(e.target.value)}
         value={input}
       />
       <button

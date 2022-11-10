@@ -1,5 +1,4 @@
-import React from "react";
-import './Spinner.css'
+import "./Spinner.css";
 
 const Spinner = () => {
   return (
@@ -9,4 +8,6 @@ const Spinner = () => {
   );
 };
 
-export default Spinner;
+export default Spinner
+
+// Spinner for loading moments. 

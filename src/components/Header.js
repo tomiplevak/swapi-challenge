@@ -5,6 +5,7 @@ import Logo from "../assets/header-logo.svg";
 import "./Header.css";
 
 const Header = () => {
+
   const navigate = useNavigate();
   const navigateToHome = () => {
     navigate("/");
@@ -23,8 +24,9 @@ const Header = () => {
         className="header-logo"
       />
       <p className="header-paragraph">
-        All the Star Wars data you've ever wanted: 
-        <br/>Planets, Spaceships, Vehicles, Characters, Films and Species
+        All the Star Wars data you've ever wanted.
+        <br />
+        Look for your favorites characters and find out!
       </p>
     </div>
   );

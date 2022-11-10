@@ -4,6 +4,6 @@ body {
 }
 
 @font-face {
-  font-family: 'StarJedi';
-  src: local('Starjedi'), url(./assets/Starjedi.ttf) format('truetype');
+  font-family: "StarJedi";
+  src: local("Starjedi"), url(./assets/Starjedi.ttf) format("truetype");
 }

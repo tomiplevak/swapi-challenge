@@ -1,5 +1,6 @@
-import "./Footer.css";
 import footerImg from "../assets/footer-img.png";
+
+import "./Footer.css";
 
 const Footer = () => {
 
@@ -14,7 +15,7 @@ const Footer = () => {
     <div className="footer container">
       <div className="row">
         <div className="col">
-          <img onClick={navigateToTop} className="footer-img" src={footerImg} />
+          <img onClick={navigateToTop} className="footer-img" src={footerImg} alt='footer-img' />
         </div>
         <div className="col">
           <p>
@@ -26,7 +27,7 @@ const Footer = () => {
           </p>
         </div>
         <div className="col">
-          <img onClick={navigateToTop} className="footer-img" src={footerImg} />
+          <img onClick={navigateToTop} className="footer-img" src={footerImg} alt='footer-img' />
         </div>
       </div>
     </div>

@@ -1,13 +1,16 @@
 import React from "react";
 
-import "./CharacterDetailsCard.css";
+import findIDFromString from "../utils/findIDFromString";
+
+//Images of episodes are not provided by the API.
 import episode1Poster from "../assets/episode1.jpg";
 import episode2Poster from "../assets/episode2.jpg";
 import episode3Poster from "../assets/episode3.jpg";
 import episode4Poster from "../assets/episode4.jpg";
 import episode5Poster from "../assets/episode5.jpg";
 import episode6Poster from "../assets/episode6.jpg";
-import findIDFromString from "../utils/findIDFromString";
+
+import "./CharacterDetailsCard.css";
 
 const filmsPoster = new Map([
   ["1", episode1Poster],
@@ -19,6 +22,7 @@ const filmsPoster = new Map([
 ]);
 
 const CharacterDetailsCard = (props) => {
+
   const characterFilms = [];
   props.character?.films.forEach((film) => {
     const filmID = findIDFromString(film, "films/");
@@ -49,15 +53,19 @@ const CharacterDetailsCard = (props) => {
           <p className="card-text">Appears in Episodes:</p>
           <div className="row">
             {characterFilms?.map((film) => (
-              <div className="col">
-                <p className="card-text film-episode">{film}</p>
+              <div className="col" key={film}>
+                <p className="card-text episode-number">{film}</p>
               </div>
             ))}
           </div>
-          <div className={imgFilms.length > 1 ? "container" : "container container-small"}>
+          <div
+            className={
+              imgFilms.length > 1 ? "container" : "container container-small"
+            }
+          >
             <div className="row">
               {imgFilms?.map((film) => (
-                <div className="col">
+                <div className="col" key={film}>
                   <img src={film} alt="film-poster" className="img-fluid" />
                 </div>
               ))}

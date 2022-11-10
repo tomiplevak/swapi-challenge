@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { getCharacters } from "../services/characterService";
 import CharacterCard from "./CharacterCard";
-import "./CardsContainer.css";
-import { useNavigate } from "react-router";
 import SearchBox from "./SearchBox";
-import Spinner from './Spinner'
+import Spinner from "./Spinner";
 import findIDFromString from "../utils/findIDFromString";
 
-const CardsContainer = () => {
-  const [characters, setCharacters] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [searchedInput, setSearchedInput] = useState('');
-  const [isLoading, setIsLoading] = useState(true);
+import "./CardsContainer.css";
 
-  const itemsPerPage = 10;
+const CardsContainer = () => {
+  
+  const [characters, setCharacters] = useState([]);
+  const [searchedInput, setSearchedInput] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const navigate = useNavigate();
 
@@ -24,8 +24,8 @@ const CardsContainer = () => {
     });
   }, [currentPage, searchedInput]);
 
+  const itemsPerPage = 10;
   const pageNumbers = [];
-
   for (let i = 1; i <= Math.ceil(characters?.count / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
@@ -43,26 +43,30 @@ const CardsContainer = () => {
   };
 
   const onClickCharacter = (character) => {
-    const id = findIDFromString(character?.url,"people/")
+    const id = findIDFromString(character?.url, "people/");
     navigate(`/characters/${id}`);
   };
 
   const onSearch = (text) => {
     setSearchedInput(text);
     setIsLoading(true);
-  }
+  };
 
   return (
     <div className="container">
-      <SearchBox onSearch={onSearch}/>
+      <SearchBox onSearch={onSearch} />
       <div className="row">
-        {isLoading ? <Spinner /> : characters?.results?.map((character) => (
-          <CharacterCard
-            character={character}
-            key={character.name}
-            onClickCharacter={onClickCharacter}
-          />
-        ))}
+        {isLoading ? (
+          <Spinner />
+        ) : (
+          characters?.results?.map((character) => (
+            <CharacterCard
+              character={character}
+              key={character.name}
+              onClickCharacter={onClickCharacter}
+            />
+          ))
+        )}
       </div>
       <nav aria-label="Page navigation example" className="pagination-navbar">
         <ul className="pagination">
