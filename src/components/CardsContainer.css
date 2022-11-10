@@ -23,3 +23,6 @@
 .page-link:active{
     background-color: black;
 }
+.row{
+    justify-content: center;
+}
