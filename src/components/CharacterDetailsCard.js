@@ -10,19 +10,18 @@ import episode6Poster from "../assets/episode6.jpg";
 import findIDFromString from "../utils/findIDFromString";
 
 const filmsPoster = new Map([
-  ['1', episode1Poster],
-  ['2', episode2Poster],
-  ['3', episode3Poster],
-  ['4', episode4Poster],
-  ['5', episode5Poster],
-  ['6', episode6Poster]
-])
+  ["1", episode1Poster],
+  ["2", episode2Poster],
+  ["3", episode3Poster],
+  ["4", episode4Poster],
+  ["5", episode5Poster],
+  ["6", episode6Poster],
+]);
 
 const CharacterDetailsCard = (props) => {
   const characterFilms = [];
-
-  props.character?.films.forEach(film => {
-    const filmID = findIDFromString(film,"films/")
+  props.character?.films.forEach((film) => {
+    const filmID = findIDFromString(film, "films/");
     characterFilms.push(filmID);
   });
 
@@ -32,7 +31,9 @@ const CharacterDetailsCard = (props) => {
     <div className="card-container">
       <div className="card text-center card-details">
         <div className="card-body">
-          <h4 className="card-title card-details-title">{props.character?.name}</h4>
+          <h4 className="card-title card-details-title">
+            {props.character?.name}
+          </h4>
           <p className="card-text">Height: {props.character?.height}cm</p>
           <p className="card-text">
             Mass:{" "}
@@ -49,16 +50,18 @@ const CharacterDetailsCard = (props) => {
           <div className="row">
             {characterFilms?.map((film) => (
               <div className="col">
-              <p className="card-text film-episode">{film}</p>
+                <p className="card-text film-episode">{film}</p>
               </div>
             ))}
           </div>
-          <div className="row">
-            {imgFilms?.map((film) => (
-              <div className="col">
-              <img src={film} alt="film-poster" className="img-fluid"/>
-              </div>
-            ))}
+          <div className={imgFilms.length > 1 ? "container" : "container container-small"}>
+            <div className="row">
+              {imgFilms?.map((film) => (
+                <div className="col">
+                  <img src={film} alt="film-poster" className="img-fluid" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

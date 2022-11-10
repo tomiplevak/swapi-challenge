@@ -28,3 +28,7 @@
 .img-fluid{
     padding-top: 1rem;
 }
+.container-small{
+    max-width: 25%;
+    justify-content: center;
+}
